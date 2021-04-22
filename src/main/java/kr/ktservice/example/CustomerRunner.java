@@ -18,8 +18,8 @@ public class CustomerRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Customer customer = new Customer();
-        customer.setCustomer_name("Another Name");
-        customer.setCompany_name("Another Company Name");
+        customer.setCustomer_name("Custoner Name");
+        customer.setCompany_name("Company Name");
         customer.setCreated(new Date());
 
         customerRepository.save(customer);
