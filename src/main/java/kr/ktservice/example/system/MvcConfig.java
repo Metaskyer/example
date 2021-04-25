@@ -1,4 +1,4 @@
-package kr.ktservice.example;
+package kr.ktservice.example.system;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

@@ -1,4 +1,4 @@
-package kr.ktservice.example;
+package kr.ktservice.example.system;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
                         .username("user")
-                        .password("password")
+                        .password("1")
                         .roles("USER")
                         .build();
 
