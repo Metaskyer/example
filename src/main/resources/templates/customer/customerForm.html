@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head('고객 등록')">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>list page</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="fragments/layout :: menu('customer')">
+    </nav>
+</div>
+<div class="container">
+    <main>
+        <form class="was-validated" action="#" th:action="@{/customer/customerForm}" th:object="${customer}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3 form-group">
+                <label for="customer_name">고객명</label>
+                <input type="text" class="form-control" id="customer_name" th:field="*{customer_name}">
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="company_name">고객사명</label>
+                <input type="text" class="form-control" id="company_name" th:field="*{company_name}">
+            </div>
+
+            <!--<div class="mb-3">
+                <label for="validationTextarea">Textarea</label>
+                <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a message in the textarea.
+                </div>
+            </div>-->
+            <div class="text-right">
+                <a type="button" class="btn btn-primary" th:href="@{/customer/list}">취소</a>
+                <button type="submit" class="btn btn-success">확인</button>
+            </div>
+
+            <!--<div class="mb-3">
+                <select class="custom-select" required>
+                    <option value="">선택해주세요</option>
+                    <option value="1">서비스</option>
+                    <option value="2">시공</option>
+                    <option value="3">판매</option>
+                </select>
+                <div class="invalid-feedback">상품의 종류를 선택해 주세요</div>
+            </div>
+
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+
+            <div class="mb-3">
+                <div class="input-group is-invalid">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="validatedInputGroupPrepend">@</span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-describedby="validatedInputGroupPrepend" required>
+                </div>
+                <div class="invalid-feedback">
+                    Example invalid input group feedback
+                </div>
+            </div>-->
+        </form>
+    </main>
+</div>
+<footer th:replace="fragments/layout :: footer()"></footer>
+</body>
+</html>
