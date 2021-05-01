@@ -15,9 +15,17 @@
     <main>
         <div class="web-view">
             <h2 class="bar">Customer List</h2>
-            <div>Total Customer Members are <span th:text="${#lists.size(customers)}"></span></div>
+<!--            <div>Total Customer Members are <span th:text="${#lists.size(customers)}"></span></div>-->
+            <div>Total Customer Members are <span th:text="${customers.getTotalElements}"></span></div>
         </div>
         <div class="row">
+            <form class="form-inline d-flex justify-content-end">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="searchText" class="sr-only">Search</label>
+                    <input type="text" class="form-control" id="searchText" placeholder="Search the Customer Name" name="searchText">
+                </div>
+                <button type="submit" class="btn btn-light mb-2">Search</button>
+            </form>
             <table class="table">
                 <thead>
                 <tr>
@@ -36,6 +44,14 @@
                 </tr>
                 </tbody>
             </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" th:classappend="${1 == customers.pageable.pageNumber + 1 } ? 'disable'" ><a class="page-link" href="#" th:href="@{/customer/list(page=${customers.pageable.pageNumber - 1})}">Previous</a></li>
+                    <li class="page-item" th:classappend="${i == customers.pageable.pageNumber + 1 } ? 'disable'" th:each="i: ${#numbers.sequence(startPage, endPage)} "><a class="page-link" href="#" th:href="@{/customer/list(page=${i - 1})}" th:text="${i}">1</a></li>
+                    <li class="page-item" th:classappend="${customers.totalPages == customers.pageable.pageNumber + 1 } ? 'disable'"><a class="page-link" href="#" th:href="@{/customer/list(page=${customers.pageable.pageNumber + 1})}">Next</a></li>
+                </ul>
+            </nav>
             <div class="text-right">
                 <a type="button" class="btn btn-primary" th:href="@{/customer/customerForm}">ADD</a>
             </div>
