@@ -30,6 +30,9 @@
                 <li class="nav-item" th:classappend="${menu} == 'customer'? 'active'">
                     <a class="nav-link" href="#" th:href="@{/customer/list}">고객관리 <span class="sr-only" th:if="${menu} == 'customer'">(current)</span></a>
                 </li>
+                <li class="nav-item" th:classappend="${menu} == 'customer'? 'active'">
+                    <a class="nav-link" href="#" th:href="@{/workers.html}">직원 <span class="sr-only" th:if="${menu} == 'customer'">(current)</span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -37,7 +40,7 @@
 
     <div class="container" th:fragment="footer()">
         <footer class="my-5 pt-5 text-muted text-center text-small" >
-            <p class="mb-1">&copy; 2017–2021 Company Name</p>
+            <p class="mb-1">&copy; 2021 AMOS KIM</p>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>

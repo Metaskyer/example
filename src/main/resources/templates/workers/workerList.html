@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="fragments/layout :: head('Workes in K-ViZERO')">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <title>Hello, world!</title>
+</head>
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="fragments/layout :: menu('customer')">
+  </nav>
+</div>
+
+<div class="container">
+  <h2>Worker TF</h2>
+
+  <table id="vets" class="table table-striped">
+    <thead>
+    <tr>
+      <th>이름</th>
+      <th>사번</th>
+      <th>소속 본부</th>
+      <th>Specialties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="worker : ${workers.workerList}">
+      <td th:text="${worker.workerName}" </td>
+      <td th:text="${worker.workerNumber}"></td>
+      <td th:text="${worker.workerDivision}"</td>
+      <td><span th:each="specialty : ${worker.specialties}" th:text="${specialty}" /> <span
+              th:if="${worker.nrOfSpecialties == 0}">none</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small" th:replace="fragments/layout :: footer()"></footer>
+</body>
+</html>

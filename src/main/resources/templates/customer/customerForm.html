@@ -26,6 +26,16 @@
                 <input type="text" class="form-control" id="company_name" th:field="*{company_name}">
             </div>
 
+            <div class="mb-3 form-group">
+                <label for="address">주소</label>
+                <input type="text" class="form-control" id="address" th:field="*{address}">
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="telephone">연락처</label>
+                <input type="text" class="form-control" id="telephone" th:field="*{telephone}">
+            </div>
+
             <!--<div class="mb-3">
                 <label for="validationTextarea">Textarea</label>
                 <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
@@ -36,7 +46,7 @@
             <div class="text-right">
                 <a type="button" class="btn btn-primary" th:href="@{/customer/list}">취소</a>
                 <button type="submit" class="btn btn-success">확인</button>
-                <a type="button" class="btn btn-danger" th:href="@{/c}"
+                <a type="button" class="btn btn-danger">삭제</a>
             </div>
 
             <!--<div class="mb-3">
